@@ -16,6 +16,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	public static final String DELETE_QUERY = "DElete from employee   where  empId = %d";
 
+	private static final String SELECT_BY_NAME_QUERY = null;
+
 	
 	private static Connection connection = null;
 	
@@ -132,9 +134,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee getEmpByName(String name) {
+	public Employee getEmpByName(String name)throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery(String.format(SELECT_BY_NAME_QUERY, name));
+		Employee e = new Employee();
+		while (resultSet.next()) {
+			System.out.println("Id = " + resultSet.getInt(1) + "\t Name = " + resultSet.getString(2) + "\t Email = "
+					+ resultSet.getString(3) + "\t Salary = " + resultSet.getInt(4));
+
+			e.setId(resultSet.getInt(1));
+			e.setName(resultSet.getString(2));
+			e.setEmail(resultSet.getString(3));
+			e.setSalary(resultSet.getInt(4));
+		}
+		System.out.println(String.format(SELECT_BY_NAME_QUERY, name));
+		return e;
 	}
 
 }

@@ -67,10 +67,12 @@ public class Main {
 //		empDao.deleteAnEmployee(9);
 //		empDao.printAllEmployee();
 		
-		Employee emp=empDao.getEmpById(3);
+//		Employee emp=empDao.getEmpById(3);
 //		System.out.println(emp);
 		
-		System.out.println(empDao.getAllEmps());
+//		System.out.println(empDao.getAllEmps());
+		
+		System.out.println(empDao.getEmpByName("tddud' or '1 = 1"));
 		System.out.println("Main.main()");
 
 	
