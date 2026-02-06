@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import my.jdbc.model.Employee;
@@ -109,9 +110,25 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public List<Employee> getAllEmps() {
+	public List<Employee> getAllEmps() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Statement statement = connection.createStatement();
+
+		ResultSet resultSet = statement.executeQuery("SELECT * FROM employee");
+		ArrayList<Employee> listOfEmps = new ArrayList<>();
+
+		while (resultSet.next()) {
+
+			Employee e = new Employee();
+			e.setId(resultSet.getInt(1));
+			e.setName(resultSet.getString(2));
+			e.setEmail(resultSet.getString(3));
+			e.setSalary(resultSet.getInt(4));
+
+			listOfEmps.add(e);
+
+		}
+		return listOfEmps;
 	}
 
 	@Override

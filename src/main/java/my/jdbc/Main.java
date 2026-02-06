@@ -68,7 +68,9 @@ public class Main {
 //		empDao.printAllEmployee();
 		
 		Employee emp=empDao.getEmpById(3);
-		System.out.println(emp);
+//		System.out.println(emp);
+		
+		System.out.println(empDao.getAllEmps());
 		System.out.println("Main.main()");
 
 	
