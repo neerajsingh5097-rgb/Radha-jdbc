@@ -41,9 +41,11 @@ public class Main {
 		 */
 
 		EmployeeDao empDao = new EmployeeDaoImpl();
-		empDao.saveEmployee(e);
+//		empDao.saveEmployee(e);
 
 //		empDao.updateEmployee(e);
+		
+		empDao.deleteAnEmployee(9);
 		System.out.println("Main.main()");
 	
 

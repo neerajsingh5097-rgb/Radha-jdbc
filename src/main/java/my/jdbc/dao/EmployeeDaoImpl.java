@@ -12,6 +12,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	
 	public static final String UPDATE_QUERY = "update employee set name = '%s' , email = '%s' , salary = %d  where  empId = %d";
 
+	public static final String DELETE_QUERY = "DElete from employee   where  empId = %d";
+
 	
 	private static Connection connection = null;
 	
@@ -56,7 +58,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public void deleteAnEmployee(int id) {
 		// TODO Auto-generated method stub
-		
+         try(Statement statement = connection.createStatement();) {
+			
+			statement.executeUpdate(String.format(DELETE_QUERY, id));
+			
+			System.out.println(String.format(DELETE_QUERY,id));
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	@Override
