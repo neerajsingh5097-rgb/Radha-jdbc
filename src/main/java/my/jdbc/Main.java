@@ -31,7 +31,7 @@ public class Main {
 
 //		 ise al line me is prakr likhege 
 
-		Employee e = new Employee(9, 44444, "Kunal Singh", "kunal123@gmail.com");
+		Employee e = new Employee(9, 1000, "Raja Singh", "rajaal123@gmail.com");
 		/*
 		 * DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "root",
 		 * "root").createStatement().executeUpdate(
@@ -41,16 +41,11 @@ public class Main {
 		 */
 
 		EmployeeDao empDao = new EmployeeDaoImpl();
-//		empDao.saveEmployee(e);
+		empDao.saveEmployee(e);
 
-		empDao.updateEmployee(e);
+//		empDao.updateEmployee(e);
 		System.out.println("Main.main()");
-		System.out.println("Main.main()");
-		System.out.println("Main.main()");
-		System.out.println("Main.main()");
-		System.out.println("Main.main()");
-		System.out.println("Main.main()");
-		System.out.println("Main.main(1)");
+	
 
 
 	}
