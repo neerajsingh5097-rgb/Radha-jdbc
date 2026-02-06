@@ -2,6 +2,7 @@ package my.jdbc.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -71,15 +72,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public void printAllEmployee() {
+	public void printAllEmployee()throws SQLException {
 		// TODO Auto-generated method stub
-		
+
+	      Statement statement = connection.createStatement();
+				
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM employee");
+				
+				while(resultSet.next()) {
+				   System.out.println("Id = "+resultSet.getInt(1)+"\t NAME = "+resultSet.getString(2)+"t Email = "+resultSet.getString(3)+"\t Salary ="+resultSet.getInt(4));
+				}
+				
+				System.out.println("SELECT * FROM employee");
+				
+			
 	}
 
 	@Override
-	public Employee getEmpById(int id) {
+	public Employee getEmpById(int id)throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+
+	      Statement statement = connection.createStatement();
+				
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM employee where empId ="+id);
+				resultSet.next();
+				
+				Employee e = new Employee();
+				
+				e.setId(id);
+				e.setName(resultSet.getString(2));
+				e.setEmail(resultSet.getString(3));
+				e.setSalary(resultSet.getInt(4));
+				System.out.println("SELECT * FROM employee where empId ="+id);
+				
+		return e;
 	}
 
 	@Override
