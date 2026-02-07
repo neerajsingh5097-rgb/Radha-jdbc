@@ -15,8 +15,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public static final String UPDATE_QUERY = "update employee set name = '%s' , email = '%s' , salary = %d  where  empId = %d";
 
 	public static final String DELETE_QUERY = "DElete from employee   where  empId = %d";
+	
+	public static final String SELECT_BY_NAME_QUERY = "SELECT * FROM employee where name = '%s'";
 
-	private static final String SELECT_BY_NAME_QUERY = null;
+
 
 	
 	private static Connection connection = null;
@@ -122,6 +124,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		while (resultSet.next()) {
 
 			Employee e = new Employee();
+			
 			e.setId(resultSet.getInt(1));
 			e.setName(resultSet.getString(2));
 			e.setEmail(resultSet.getString(3));
