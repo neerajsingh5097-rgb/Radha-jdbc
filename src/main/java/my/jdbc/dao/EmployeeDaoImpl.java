@@ -109,8 +109,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 		for (int i = 1; i <= 100; i++) {
 			ps.setInt(1, 10 + i);
-			ps.setString(2, "Pancham " + i);
-			ps.setString(3, "Pancham" + i + "@gmail.com");
+			ps.setString(2, "Neeraj " + i);
+			ps.setString(3, "neeraj" + i + "@gmail.com");
 			ps.setInt(4, 50_000);
 			ps.addBatch();
 
