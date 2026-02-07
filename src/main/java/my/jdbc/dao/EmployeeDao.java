@@ -7,19 +7,21 @@ import my.jdbc.model.Employee;
 
 public interface EmployeeDao {
 
-	public void saveEmployee(Employee e)throws SQLException ;
+	public void saveEmployeeByPs(Employee e)throws SQLException ;
 	
 	public void updateEmployee(Employee e);
 	
 	public void deleteAnEmployee(int id);
 	
-	public void printAllEmployee();
+	public void printAllEmployee() throws SQLException;
 	
-	public Employee getEmpById(int id);
+	public Employee getEmpById(int id)throws SQLException;
 	
-	public List<Employee> getAllEmps();
+	public List<Employee> getAllEmps() throws SQLException;
 	
-	public Employee getEmpByName(String name);
+	public Employee getEmpByName(String name) throws SQLException;
+
+	void insertBatch() throws SQLException;
 
 
 
